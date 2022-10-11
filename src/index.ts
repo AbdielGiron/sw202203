@@ -12,7 +12,11 @@ moduleAlias.addAliases({
       "@dao": `${srcPath}/dao`
 });
 
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 import { createServer } from '@config/express';
+import { initMongo } from '@config/mongo';
 import { AddressInfo } from 'net';
 import http from 'http';
 
@@ -41,5 +45,6 @@ const startServer = async () => {
     });
   });
 };
-
-startServer();
+initMongo(
+  startServer
+);
