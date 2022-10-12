@@ -17,6 +17,7 @@ dotenv.config();
 
 import { createServer } from '@config/express';
 import { initMongo } from '@config/mongo';
+
 import { AddressInfo } from 'net';
 import http from 'http';
 
@@ -45,6 +46,7 @@ const startServer = async () => {
     });
   });
 };
+
 initMongo(
   startServer
 );
